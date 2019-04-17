@@ -56,19 +56,26 @@ This project has a few sample rules (rule "RuleA", and decision table "RuleB"). 
 
 Functions ("initialize" and "finalize"):
 
-calls the functions "initialize" and "finalize"
-These functions add/remove the observer object to the rule engine.
+The function "initialize" creates a new response object, calls the BOM method add with the created response as the parameter.
+The function "finalize" calls the BOM method remove to remove the observer, and print the messages it has stored.
 
 Ruleflow ("Main flow"):
 
-calls the functions "initialize" and "finalize" in the ruleflow "Main flow".
+This calls the function "initialize" at the start, then runs the rules, and finally calls the function "finalize" during cleanup.
 
 Variables:
+The variables "request" and "response" are instantiations of the respective objects in the XOM project.
 
 BOM:
 
 The response object contains an EngineTrace that is set when the observer is added (in the B2X).
 When the observer is notified of something by the engine, we add a TraceElement with a message to this EngineTrace.
+
+dont verbalize so that it doesn't show up for business users.
+
+Deployment:
+
+There is a decision operation "TestObserverOperation", which defines that a request is required for input, and a response is given on output. There is also a deployment configuration which defines the target RES server.
 
 License Information<a name="license"></a>
 ====================
