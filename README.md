@@ -79,9 +79,9 @@ This is esentially a wrapper for a String message. An EngineTrace contains a lis
 #### EngineTrace:
 
 This class contains/stores a list of TraceElements. There are also three attributes that can be configured.
-+ traceRules -
-+ traceRuleFlows -
-+ traceAgenda -
++ traceRules - set true to get notified before/after a RuleAction is executed, or when an exception is raised in a rule.
++ traceRuleFlows - set true to get notified before/after a flow is executed. A flow is either the execution of a single rule task or function, or the execution of a flow task. 
++ traceAgenda - set true to get notified when a RuleInstance is updated or added/removed from the agenda.
 
 It is important to include an xml annotation so that the EngineTrace is printed in HTDS. When the observer is notified of something by the engine, a TraceElement with a message is added to this EngineTrace.
 
