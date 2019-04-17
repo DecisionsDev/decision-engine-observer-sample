@@ -32,48 +32,48 @@ Usage Instructions<a name="instruction"></a>
 Details<a name="details"></a>
 ============
 
-Inside the Main Rule Project (TestObserverForOoC-service):
+### Inside the Main Rule Project (TestObserverForOoC-service):
 
 #### Rules:
 
 This project has a few sample rules (rule "RuleA", and decision table "RuleB"). These are filler rules, just created so that there are rules to run in the ruleflow.
 
-Functions ("initialize" and "finalize"):
+#### Functions ("initialize" and "finalize"):
 
 The function "initialize" creates a new response object, calls the BOM method add with the created response as the parameter.
 The function "finalize" calls the BOM method remove to remove the observer, and print the messages it has stored.
 
-Ruleflow ("Main flow"):
+#### Ruleflow ("Main flow"):
 
 This calls the function "initialize" at the start, then runs the rules, and finally calls the function "finalize" during cleanup.
 
-Variables:
+#### Variables:
 
 The variables "request" and "response" are instantiations of the BOM objects.
 
-BOM:
+#### BOM:
 
 In the BOM, we have verbalizations of the request and response objects. We also have an Observer class which is not verbalized (so that it is not seen by business users). Observer has two BOM method's defined; "add(Response)" and "remove()". Add takes a Response object, and creates/adds a new EngineObserverDE with a new trace. Remove gets the list of observers that have been added to the engine, searches for any with the class "EngineObserverDE", and removes them.
 
-Deployment:
+#### Deployment:
 
 There is a decision operation "TestObserverOperation", which defines that a request is required for input, and a response is given on output. There is also a deployment configuration which defines the target RES server.
 
-Inside the XOM project (TestObserverForOoC-xom):
+### Inside the XOM project (TestObserverForOoC-xom):
 
-Response/Request Classes:
+#### Response/Request Classes:
 
 The Request object contains a date, and an input number. The response object contains an outout number, a string message, and stores the EngineTrace.
 
-TraceElement:
+#### TraceElement:
 
 This is esentially a wrapper for a String message. An EngineTrace contains a list of TraceElement messages that were created when the observer was sent a notification by the engine.
 
-EngineTrace:
+#### EngineTrace:
 
 This class contains/stores a list of TraceElements. There are also some boolean variables that can be turned off to turn off parts of the observer trace (traceRules, traceRuleFlows, traceAgenda). We added an xml wrapper so it behaves properly in htds. When the observer is notified of something by the engine, a TraceElement with a message is added to this EngineTrace.
 
-EngineObserverDE:
+#### EngineObserverDE:
 
 This class implements three children of Observer; <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/jrules2dotnet/html/T_IBM_Rules_RVE_RuleDef_Runtime_RuleEngineObserver.htm">RuleEngineObserver</a>, <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/jrules2dotnet/html/T_IBM_Rules_RVE_Ruleflow_Runtime_RuleflowObserver.htm">RuleflowObserver</a>, and <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/jrules2dotnet/html/T_IBM_Rules_RVE_RuleDef_Runtime_AgendaObserver.htm">AgendaObserver</a>. It overrides the reuired methods for these interfaces and adds to its trace whenever one of these is called during a notification event. 
 It uses an EngineTrace Object to store all the notification traces, and this object is printed when the observer is removed.
