@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.rule:Function xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.rule="http://ilog.rules.studio/model/rule.ecore">
+  <name>finalize</name>
+  <uuid>6671c5f2-adb7-4bd0-bd87-b4a38a1d8b43</uuid>
+  <definition><![CDATA[com.ibm.demo.util.Observer.remove();]]></definition>
+</ilog.rules.studio.model.rule:Function>
