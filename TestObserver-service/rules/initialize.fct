@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ilog.rules.studio.model.rule:Function xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.rule="http://ilog.rules.studio/model/rule.ecore">
-  <name>initialize</name>
-  <uuid>1ffd97d5-b28d-4dbe-b389-15de9764a9fc</uuid>
-  <definition><![CDATA[response = new Response();
-com.ibm.demo.util.Observer.add(response);]]></definition>
-  <imports>import com.ibm.demo.Response;</imports>
-  <imports>use request;</imports>
-</ilog.rules.studio.model.rule:Function>
