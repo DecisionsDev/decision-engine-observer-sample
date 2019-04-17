@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:VariableSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
+  <name>variables</name>
+  <uuid>6b11cc75-6b7a-46cd-a365-0de562d1611a</uuid>
+  <variables name="request" type="com.ibm.demo.Request" initialValue="" verbalization="the request"/>
+  <variables name="response" type="com.ibm.demo.Response" initialValue="null" verbalization="the response"/>
+</ilog.rules.studio.model.base:VariableSet>

@@ -1,0 +1,53 @@
+<b2x:translation xmlns:b2x="http://schemas.ilog.com/JRules/1.3/Translation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.ilog.com/JRules/1.3/Translation ilog/rules/schemas/1_3/b2x.xsd">
+    <id>9c60222e-a363-4006-8048-1d8f74ec044b</id>
+    <lang>ARL</lang>
+    <class>
+        <businessName>com.ibm.demo.Request</businessName>
+        <import>com.ibm.rules.engine.runtime.RunningEngineWithWorkingMemory</import>
+    </class>
+    <class>
+        <businessName>com.ibm.demo.util.Observer</businessName>
+        <executionName>java.lang.Void</executionName>
+        <import>com.ibm.demo.util.EngineTrace</import>
+        <import>com.ibm.demo.util.EngineObserverDE</import>
+        <method>
+            <name>add</name>
+            <parameter type="com.ibm.demo.Response"/>
+            <body language="arl"><![CDATA[
+            EngineTrace trace = null;
+if (com.ibm.rules.engine.runtime.RunningEngineWithWorkingMemory.this instanceof com.ibm.rules.engine.ruleflow.runtime.RunningRuleflowEngine) {
+	com.ibm.rules.engine.ruleflow.runtime.RunningRuleflowEngine engine = (com.ibm.rules.engine.ruleflow.runtime.RunningRuleflowEngine)com.ibm.rules.engine.runtime.RunningEngineWithWorkingMemory.this;
+	trace=new EngineTrace();
+	EngineObserverDE observer = new EngineObserverDE(trace);
+	response.setEngineTrace(trace); 
+	engine.addObserver(observer);
+	}
+            ]]></body>
+        </method>
+        <method>
+            <name>remove</name>
+            <body language="arl"><![CDATA[
+            if (com.ibm.rules.engine.runtime.RunningEngineWithWorkingMemory.this instanceof com.ibm.rules.engine.ruleflow.runtime.RunningRuleflowEngine) {
+	com.ibm.rules.engine.ruleflow.runtime.RunningRuleflowEngine engine = (com.ibm.rules.engine.ruleflow.runtime.RunningRuleflowEngine)com.ibm.rules.engine.runtime.RunningEngineWithWorkingMemory.this;
+		
+	//engine.removeAllObservers();
+	
+		java.util.List observerList = engine.getAllObservers().get(java.lang.Class.forName("com.ibm.rules.engine.ruledef.runtime.RuleEngineObserver"));
+		java.util.Iterator observers = (new java.util.ArrayList(observerList)).iterator();
+		java.lang.Class myEngineObserver=java.lang.Class.forName("com.ibm.demo.util.EngineObserverDE");
+		java.lang.System.out.println(observers);
+		
+	while (observers.hasNext()){		
+		com.ibm.rules.engine.observer.Observer observer= (com.ibm.rules.engine.observer.Observer) observers.next();
+		java.lang.System.out.println(observer);
+		if (observer instanceof com.ibm.demo.util.EngineObserverDE)
+		engine.removeObserver(observer);
+	}
+	
+	
+	
+	}
+            ]]></body>
+        </method>
+    </class>
+</b2x:translation>
