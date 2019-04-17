@@ -44,15 +44,17 @@ At the beginning, this calls the BOM method add with the created response as the
 
 #### Variables:
 
-The variables "request" and "response" are instantiations of the BOM objects.
+Just used for input and output parameters.
 
 #### BOM:
 
 
+[Contribution guidelines for this project](docs/CONTRIBUTING.md)
+
 
 In the BOM, we have a virtual class called Observer which is not verbalized (so that it is not seen by business users).
 
-Observer has two BOM method's defined; "add(Response)" and "remove()". 
+Observer has two BOM method's defined; "add(Response)" and "remove()". The code is implemented in the functions' B2X which make them virtual.
 
 + Add takes a Response object, and creates/adds a new EngineObserverDE with a new trace. 
 + Remove gets the list of observers that have been added to the engine, searches for any with the class "EngineObserverDE", and removes them.
@@ -65,11 +67,11 @@ There is a decision operation "TestObserverOperation", which defines that a requ
 
 #### Request Class:
 
-The Request object contains a date, and an input number.
+The Request class contains a date, and an input number.
 
 #### Response Class:
 
-The response object contains an outout number, a string message, and stores the EngineTrace.
+The response class contains an outout number, a string message, and stores the EngineTrace.
 
 #### TraceElement:
 
