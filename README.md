@@ -36,12 +36,15 @@ Inside the XOM project (TestObserverForOoC-xom):
 
 Response/Request Classes:
 
-
+The response object contains an EngineTrace
 
 TraceElement:
 
+This is esentially a wrapper for a String message. An EngineTrace contains a list of TraceElement messages that were created when the observer was sent a notification by the engine.
+
 EngineTrace:
-We also added an xml wrapper so it behaves properly in htds.
+
+This class contains/stores a list of TraceElements. There are also some boolean variables that can be turned off to turn off parts of the observer trace (traceRules, traceRuleFlows, traceAgenda). We added an xml wrapper so it behaves properly in htds. When the observer is notified of something by the engine, a TraceElement with a message is added to this EngineTrace.
 
 EngineObserverDE:
 
@@ -64,14 +67,11 @@ Ruleflow ("Main flow"):
 This calls the function "initialize" at the start, then runs the rules, and finally calls the function "finalize" during cleanup.
 
 Variables:
-The variables "request" and "response" are instantiations of the respective objects in the XOM project.
+The variables "request" and "response" are instantiations of the BOM objects.
 
 BOM:
 
-The response object contains an EngineTrace that is set when the observer is added (in the B2X).
-When the observer is notified of something by the engine, we add a TraceElement with a message to this EngineTrace.
-
-dont verbalize so that it doesn't show up for business users.
+In the BOM, we have verbalizations of the request and response objects. We also have an Observer class which is not verbalized (so that it is not seen by business users). Observer has two BOM method's defined; "add(Response)" and "remove()". Add takes a Response object, and creates/adds a new EngineObserverDE with a new trace. Remove gets the list of observers that have been added to the engine, searches for any with the class "EngineObserverDE", and removes them.
 
 Deployment:
 
