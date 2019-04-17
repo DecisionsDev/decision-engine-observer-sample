@@ -11,17 +11,12 @@ Introduction<a name="intro"></a>
 This document provides an example implementation of a Rule Engine Observer. The code is provided and can be extended as needed.  
 An Observer is used to receive notifications from an Observable object (You can use it for additional logging for instance).
 
+The included example, we implement RuleEngineObserver, RuleflowObserver, AgendaObserver
 
-Version(s) Supported<a name="versions"></a>
-====================
 
-IBM ODM 8.7 or greater
+<a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/api/html/com/ibm/rules/engine/observer/Observable.html">link text</a>
 
-Usage Instructions<a name="instruction"></a>
-===================
 
-The included example, we implement RuleEngineObserver, RuleflowObserver, AgendaObserver 
-https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/api/html/com/ibm/rules/engine/observer/Observable.html
 You can import this sample into an existing Rule Designer or Decision Center to View.
 
 In the XOM project "TestObserverForOoC-xom" we define the request and a response objects. We also inplement the Observer in EngineObserverDE.java
@@ -35,11 +30,23 @@ These functions add/remove the observer object to the rule engine.
 The BOM defines the add and remove observer functions.
 
 The response object contains an EngineTrace that is set when the observer is added (in the B2X).
-When the observer is notified of something by the engine, we add a TraceElement with a message to this EngineTrace. 
+When the observer is notified of something by the engine, we add a TraceElement with a message to this EngineTrace.
 
-To run, import into decision center (or rule designer), and update the deployment configuration to include your RES Server. Then Deploy to this server.
-Log onto the RES server you deployed on, and navaigate to the ruleapp "MyTest" in the explorer tab. Open up ruleset "runRules". Retreive HTDS description file, select REST, format WADL, and Test.
-When you click "Execute Request", you will see trace messages in the response printed by our observer.
+
+Version(s) Supported<a name="versions"></a>
+====================
+
+IBM ODM 8.7 or greater
+
+Usage Instructions<a name="instruction"></a>
+===================
+
+1. Import into decision center (or rule designer).
+2. Update the deployment configuration to include your RES Server. 
+3. Deploy to the RES server.
+4. Log onto the RES server and navaigate to the ruleapp "MyTest" in the explorer tab. Open up ruleset "runRules". 
+5. Retreive HTDS description file, select REST, format WADL, and Test.
+6. Click on "Execute Request"; you will see trace messages in the response printed by our observer.
 
 License Information<a name="license"></a>
 ====================
