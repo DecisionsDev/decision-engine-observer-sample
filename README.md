@@ -34,7 +34,7 @@ Details<a name="details"></a>
 
 Inside the Main Rule Project (TestObserverForOoC-service):
 
-<p style="text-decoration: underline;">Rules:</p>
+Rules:
 
 This project has a few sample rules (rule "RuleA", and decision table "RuleB"). These are filler rules, just created so that there are rules to run in the ruleflow.
 
