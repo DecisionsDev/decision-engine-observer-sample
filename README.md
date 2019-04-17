@@ -17,21 +17,36 @@ You can import this sample into an existing Rule Designer or Decision Center to 
 Details<a name="details"></a>
 ============
 
-EngineObserverDE
+Inside the XOM project (TestObserverForOoC-xom):
 
-This class implements three children of Observer, <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/jrules2dotnet/html/T_IBM_Rules_RVE_RuleDef_Runtime_RuleEngineObserver.htm">RuleEngineObserver</a>, <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/jrules2dotnet/html/T_IBM_Rules_RVE_Ruleflow_Runtime_RuleflowObserver.htm">RuleflowObserver</a>, and <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/jrules2dotnet/html/T_IBM_Rules_RVE_RuleDef_Runtime_AgendaObserver.htm">AgendaObserver</a>.
+Response/Request Classes:
 
+TraceElement:
 
+EngineTrace:
+We also added an xml wrapper so it behaves properly in htds.
 
-In the XOM project "TestObserverForOoC-xom" we define the request and a response objects. We also inplement the Observer in EngineObserverDE.java
-The EngineObserverDE class overrides the methods in observable, and adds to its trace whenever one of these is called during a notification event. 
+EngineObserverDE:
+
+This class implements three children of Observer; <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/jrules2dotnet/html/T_IBM_Rules_RVE_RuleDef_Runtime_RuleEngineObserver.htm">RuleEngineObserver</a>, <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/jrules2dotnet/html/T_IBM_Rules_RVE_Ruleflow_Runtime_RuleflowObserver.htm">RuleflowObserver</a>, and <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/jrules2dotnet/html/T_IBM_Rules_RVE_RuleDef_Runtime_AgendaObserver.htm">AgendaObserver</a>. It overrides the reuired methods for these interfaces and adds to its trace whenever one of these is called during a notification event. 
 It uses an EngineTrace Object to store all the notification traces, and this object is printed when the observer is removed.
-We also added an xml wrapper to EngineTrace.java so it behaves properly in htds.
 
-The Main Rule Project "TestObserverForOoC-service" runs a few sample rules (RuleA, RuleB), and calls the functions "initialize" and "finalize" in the ruleflow "Main flow".
+Inside the Main Rule Project (TestObserverForOoC-service):
+
+Rules:
+
+This project has a few sample rules (RuleA, RuleB)
+
+Functions:
+
+calls the functions "initialize" and "finalize"
 These functions add/remove the observer object to the rule engine.
 
-The BOM defines the add and remove observer functions.
+Ruleflow:
+
+calls the functions "initialize" and "finalize" in the ruleflow "Main flow".
+
+BOM:
 
 The response object contains an EngineTrace that is set when the observer is added (in the B2X).
 When the observer is notified of something by the engine, we add a TraceElement with a message to this EngineTrace.
