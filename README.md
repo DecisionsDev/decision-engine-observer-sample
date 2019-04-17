@@ -13,8 +13,8 @@ An Observer is used to receive notifications from an Observable object (You can 
 
 
 Version(s) Supported<a name="versions"></a>
-
 ====================
+
 IBM ODM 8.7 or greater
 
 Usage Instructions<a name="instruction"></a>
@@ -46,4 +46,4 @@ License Information<a name="license"></a>
 The Dockerfiles and associated scripts found in this project are licensed under the [Apache License 2.0](LICENSE).
 
 # Notice
-© Copyright IBM Corporation 2018.
+© Copyright IBM Corporation 2019.
