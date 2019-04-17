@@ -49,7 +49,7 @@ Just used for input and output parameters.
 #### BOM:
 
 
-[Contribution guidelines for this project](docs/CONTRIBUTING.md)
+![alt text](bom.jpg)
 
 
 In the BOM, we have a virtual class called Observer which is not verbalized (so that it is not seen by business users).
