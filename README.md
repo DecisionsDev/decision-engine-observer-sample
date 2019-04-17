@@ -36,7 +36,7 @@ Inside the XOM project (TestObserverForOoC-xom):
 
 Response/Request Classes:
 
-The response object contains an EngineTrace
+The Request object contains a date, and an input number. The response object contains an outout number, a string message, and stores the EngineTrace.
 
 TraceElement:
 
