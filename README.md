@@ -55,6 +55,9 @@ The variables "request" and "response" are instantiations of the BOM objects.
 
 In the BOM, we have verbalizations of the request and response objects. We also have an Observer class which is not verbalized (so that it is not seen by business users). Observer has two BOM method's defined; "add(Response)" and "remove()". Add takes a Response object, and creates/adds a new EngineObserverDE with a new trace. Remove gets the list of observers that have been added to the engine, searches for any with the class "EngineObserverDE", and removes them.
 
++test
++test
+
 #### Deployment:
 
 There is a decision operation "TestObserverOperation", which defines that a request is required for input, and a response is given on output. There is also a deployment configuration which defines the target RES server.
