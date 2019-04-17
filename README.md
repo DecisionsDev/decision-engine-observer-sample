@@ -48,6 +48,7 @@ Ruleflow ("Main flow"):
 This calls the function "initialize" at the start, then runs the rules, and finally calls the function "finalize" during cleanup.
 
 Variables:
+
 The variables "request" and "response" are instantiations of the BOM objects.
 
 BOM:
