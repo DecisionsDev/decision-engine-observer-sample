@@ -32,7 +32,7 @@ Usage Instructions<a name="instruction"></a>
 Details<a name="details"></a>
 ============
 
-### Inside the Main Rule Project (TestObserverForOoC-service):
+### Inside the Main Rule Project (TestObserver-service):
 
 #### Rules:
 
@@ -61,7 +61,7 @@ Observer has two BOM method's defined; "add(Response)" and "remove()".
 
 There is a decision operation "TestObserverOperation", which defines that a request is required for input, and a response is given on output. There is also a deployment configuration which defines the target RES server.
 
-### Inside the XOM project (TestObserverForOoC-xom):
+### Inside the XOM project (TestObserver-xom):
 
 #### Request Class:
 
