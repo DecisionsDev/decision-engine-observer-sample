@@ -38,14 +38,9 @@ Details<a name="details"></a>
 
 This project has a few sample rules (rule "RuleA", and decision table "RuleB"). These are filler rules, just created so that there are rules to run in the ruleflow.
 
-#### Functions ("initialize" and "finalize"):
-
-The function "initialize" creates a new response object, calls the BOM method add with the created response as the parameter.
-The function "finalize" calls the BOM method remove to remove the observer, and print the messages it has stored.
-
 #### Ruleflow ("Main flow"):
 
-This calls the function "initialize" at the start, then runs the rules, and finally calls the function "finalize" during cleanup.
+At the beginning, this calls the BOM method add with the created response as the parameter, then runs the rules, and finally calls the BOM method remove to remove the observer during cleanup.
 
 #### Variables:
 
@@ -53,10 +48,14 @@ The variables "request" and "response" are instantiations of the BOM objects.
 
 #### BOM:
 
-In the BOM, we have verbalizations of the request and response objects. We also have an Observer class which is not verbalized (so that it is not seen by business users). Observer has two BOM method's defined; "add(Response)" and "remove()". Add takes a Response object, and creates/adds a new EngineObserverDE with a new trace. Remove gets the list of observers that have been added to the engine, searches for any with the class "EngineObserverDE", and removes them.
 
-+ test
-+ test
+
+In the BOM, we have a virtual class called Observer which is not verbalized (so that it is not seen by business users).
+
+Observer has two BOM method's defined; "add(Response)" and "remove()". 
+
++ Add takes a Response object, and creates/adds a new EngineObserverDE with a new trace. 
++ Remove gets the list of observers that have been added to the engine, searches for any with the class "EngineObserverDE", and removes them.
 
 #### Deployment:
 
