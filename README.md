@@ -12,7 +12,7 @@ Introduction<a name="intro"></a>
 This document provides an example implementation of a 
 <a href="https://www.ibm.com/support/knowledgecenter/en/SSQP76_8.7.0/com.ibm.odm.dserver.rules.ref.designer/html/api/html/com/ibm/rules/engine/observer/Observable.html">Rule Engine Observer</a>. The code is provided and can be extended as needed. An Observer is used to receive notifications from an Observable object (You can use it for additional logging for instance).
 
-You can import this sample into an existing Rule Designer or Decision Center to View.
+You can import this sample into an existing rule Designer or decision Center to View.
 
 Version(s) Supported<a name="versions"></a>
 ====================
@@ -22,10 +22,10 @@ IBM ODM 8.7 or greater
 Usage Instructions<a name="instruction"></a>
 ===================
 
-1. Import into decision center (or rule designer).
-2. Update the deployment configuration to include your RES Server. 
-3. Deploy to the RES server.
-4. Log onto the RES server and navaigate to the ruleapp "MyTest" in the explorer tab. Open up ruleset "runRules". 
+1. Import into decision Center (or rule Designer).
+2. Update the deployment configuration to include your Rule Execution Server (RES). 
+3. Deploy to the RES.
+4. Log onto the RES instance and navigate to the ruleapp "MyTest" in the explorer tab. Open up ruleset "runRules". 
 5. Retreive HTDS description file, select REST, format WADL, and Test.
 6. Click on "Execute Request"; you will see trace messages in the response printed by our observer.
 
@@ -36,7 +36,7 @@ Details<a name="details"></a>
 
 #### Rules:
 
-This project has a few sample rules (rule "RuleA", and decision table "RuleB"). These are filler rules, just created so that there are rules to run in the ruleflow.
+This project has a few sample rules (rule "RuleA", and decision Table "RuleB"). These are filler rules, just created so that there are rules to run in the ruleflow.
 
 #### Ruleflow ("Main flow"):
 
@@ -61,7 +61,7 @@ Observer has two BOM method's defined; "add(Response)" and "remove()". The code 
 
 #### Deployment:
 
-There is a decision operation "TestObserverOperation", which defines that a request is required for input, and a response is given on output. There is also a deployment configuration which defines the target RES server.
+There is a decision operation "TestObserverOperation", which defines that a request is required for input, and a response is given on output. There is also a deployment configuration which defines the target RES instance.
 
 ### Inside the XOM project (TestObserver-xom):
 
@@ -99,7 +99,7 @@ This class overrides the required methods for these interfaces. When an engine n
 
 License Information<a name="license"></a>
 ====================
-The Dockerfiles and associated scripts found in this project are licensed under the [Apache License 2.0](LICENSE).
+The files found in this project are licensed under the [Apache License 2.0](LICENSE).
 
 # Notice
 © Copyright IBM Corporation 2019.
