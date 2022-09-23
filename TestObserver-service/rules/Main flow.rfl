@@ -52,8 +52,7 @@ com.ibm.demo.util.Observer.add(response);]]></Actions>
     </ResourceSet>
   </Resources>
   <Properties>
-    <imports><![CDATA[use initialize();
-]]></imports>
+    <imports></imports>
   </Properties>
 </Ruleflow></rfModel>
 </ilog.rules.studio.model.ruleflow:RuleFlow>
